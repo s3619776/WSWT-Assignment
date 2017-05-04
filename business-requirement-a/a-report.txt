@@ -1,15 +1,11 @@
 BR (A).1 
     Created EC2 instance at ec2-52-37-222-26.us-west-2.compute.amazonaws.com
     Started install of Apache with following config:
-    ./configure --prefix=/etc/apache/server_root --with-port=5000 --enable-so --with-included-apr --with-mpm=prefork
-
-
-
-BR (A).1
-- Created ec2 t2.micro vm with instance id <<enter instance id>>
-- Download source & compile apache with the following config params:
-    ./configure --with-port=8080 ...
+    ./configure --prefix=/etc/apache2/schyndel/server_root --with-port=8080 --enable-so --with-included-apr --with-mpm=prefork
 
 BR (A).1.1
-- Changed Listen directive in httpd.conf to 8080 from 80
-...
+    Made sure the Listen directive in httpd.conf is 8080 (since we installed apache with --with-port=8080)
+    Changed firewall rules to allow port 8080
+
+BR (A).3
+    Changed DocumentRoot and its directory to "/etc/apache2/schyndel/document_root" in /etc/apache2/schyndel/server_root/conf/httpd.conf

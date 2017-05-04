@@ -28,3 +28,10 @@ BR (A).1.4
 
 BR (A).3
     Changed DocumentRoot and its directory to "/etc/apache2/schyndel/document_root" in httpd.conf
+    Downloaded the content to be served from https://github.com/rohit-lakhanpal/schyndel-works-site
+    Unpacked files into DocumentRoot
+    
+BR (A).4 - NOT DONE
+    Added the following directive to httpd.conf
+    DirectoryIndex index.html index.shtml index.php
+    

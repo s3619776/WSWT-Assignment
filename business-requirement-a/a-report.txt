@@ -1,3 +1,10 @@
+BR (A).1 
+    Created EC2 instance at ec2-52-37-222-26.us-west-2.compute.amazonaws.com
+    Started install of Apache with following config:
+    ./configure --prefix=/etc/apache/server_root --with-port=5000 --enable-so --with-included-apr --with-mpm=prefork
+
+
+
 BR (A).1
 - Created ec2 t2.micro vm with instance id <<enter instance id>>
 - Download source & compile apache with the following config params:

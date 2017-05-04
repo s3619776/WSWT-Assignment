@@ -2,10 +2,29 @@ BR (A).1
     Created EC2 instance at ec2-52-37-222-26.us-west-2.compute.amazonaws.com
     Started install of Apache with following config:
     ./configure --prefix=/etc/apache2/schyndel/server_root --with-port=8080 --enable-so --with-included-apr --with-mpm=prefork
+    make && make install
 
 BR (A).1.1
-    Made sure the Listen directive in httpd.conf is 8080 (since we installed apache with --with-port=8080)
+    Checked that the Listen directive in httpd.conf is 8080 (since we installed with --with-port=8080)
     Changed firewall rules to allow port 8080
+    
+BR (A).1.2
+    Checked that the ServerRoot directive in httpd.conf is set to "/etc/apache2/schyndel/server_root" 
+    (since we installed with --prefix=/etc/apache2/schyndel/server_root)
+
+BR (A).1.4
+    Installed php5 with following command:
+    ./configure --with-apxs2=/etc/apache2/schyndel/server_root/bin/apxs --prefix=/etc/apache2/php5
+    make && make install
+    
+    Edited httpd.conf to allow server to execute and serve php scripts. Added in the following lines:
+    AddType application/x-httpd-php .php
+    AddType application/x-httpd-php-source .phps
+    
+    and made sure:
+    LoadModule php5_module modules/libphp5.so
+    was not commented out.
+    
 
 BR (A).3
-    Changed DocumentRoot and its directory to "/etc/apache2/schyndel/document_root" in /etc/apache2/schyndel/server_root/conf/httpd.conf
+    Changed DocumentRoot and its directory to "/etc/apache2/schyndel/document_root" in httpd.conf
